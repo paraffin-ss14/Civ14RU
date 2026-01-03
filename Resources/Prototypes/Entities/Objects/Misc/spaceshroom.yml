@@ -19,14 +19,6 @@
             !type:PhysShapeCircle
             radius: 0.2
     - type: InteractionOutline
-    - type: Gatherable
-      toolWhitelist:
-        components:
-          - Hands
-      loot:
-        All: !type:GroupSelector
-          children:
-          - id: FoodSpaceshroom
     - type: Damageable
       damageContainer: StructuralInorganic
       damageModifierSet: Wood

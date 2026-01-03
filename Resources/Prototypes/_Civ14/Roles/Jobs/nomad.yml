@@ -1,0 +1,16 @@
+- type: job
+  id: Nomad
+  name: job-name-nomad
+  description: job-description-nomad
+  playTimeTracker: JobNomad
+  startingGear: NomadGear
+  icon: "JobIconNomad"
+  supervisors: job-supervisors-everyone
+  access:
+    - Maintenance
+
+- type: startingGear
+  id: NomadGear
+  equipment:
+    jumpsuit: civ13_uniform_long_leather_loincloth
+    pocket1: Torch

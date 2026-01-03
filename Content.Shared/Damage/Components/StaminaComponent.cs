@@ -172,5 +172,18 @@ public sealed partial class StaminaComponent : Component
     [DataField]
     public Vector2 StartOffset = Vector2.Zero;
 
+    // stalker-changes-start
+    /// <summary>
+    /// How much stamina damage is required to entire stam crit.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
+    public float SlowdownThreshold = 50f; // CritThreshold / 2
+    // stalker-changes-end
+
+    /// <summary>
+    /// When the last "gasp" message was sent
+    /// </summary>
+    [DataField("lastMessageTime"), AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
+    public TimeSpan LastMessageTime { get; set; } = TimeSpan.Zero;
     #endregion
 }

@@ -15,38 +15,6 @@
   objectType: Item
 
 - type: construction
-  id: BoneArmor
-  graph: BoneArmor
-  startNode: start
-  targetNode: armor
-  category: construction-category-clothing
-  objectType: Item
-
-- type: construction
-  id: BoneHelmet
-  graph: BoneHelmet
-  startNode: start
-  targetNode: helmet
-  category: construction-category-clothing
-  objectType: Item
-
-- type: construction
-  id: cardHelmet
-  graph: cardHelmet
-  startNode: start
-  targetNode: cardhelmet
-  category: construction-category-clothing
-  objectType: Item
-
-- type: construction
-  id: cardArmour
-  graph: cardArmour
-  startNode: start
-  targetNode: cardarmour
-  category: construction-category-clothing
-  objectType: Item
-
-- type: construction
   id: BananaClownMask
   graph: BananaClownMask
   startNode: start
@@ -99,14 +67,6 @@
   graph: GlassesSecHUD
   startNode: start
   targetNode: glassesSec
-  category: construction-category-clothing
-  objectType: Item
-
-- type: construction
-  id: ClothingBeltQuiver
-  graph: Quiver
-  startNode: start
-  targetNode: Quiver
   category: construction-category-clothing
   objectType: Item
 

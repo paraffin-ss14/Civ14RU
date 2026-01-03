@@ -1,0 +1,53 @@
+- type: construction
+  name: small mill
+  id: KitchenMill
+  graph: KitchenMill
+  startNode: start
+  targetNode: end
+  category: construction-category-misc
+  description: A small, hand-powered, wood mill.
+  icon: { sprite: Civ14/Objects/structures.rsi, state: flour_mill }
+  objectType: Item
+  agemin: 0
+  agemax: 8
+
+- type: construction
+  name: campfire
+  id: KitchenCampfire
+  graph: KitchenCampfire
+  startNode: start
+  targetNode: end
+  category: construction-category-misc
+  description: "Keeps you warm and cooks your food."
+  icon: { sprite: Civ14/Objects/kitchen.rsi, state: fireplace_on }
+  objectType: Item
+  agemin: 0
+  agemax: 8
+
+- type: constructionGraph
+  id: KitchenMill
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: end
+          steps:
+            - material: WoodPlank
+              amount: 4
+              doAfter: 2
+    - node: end
+      entity: KitchenMill
+
+- type: constructionGraph
+  id: KitchenCampfire
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: end
+          steps:
+            - material: WoodPlank
+              amount: 5
+              doAfter: 5
+    - node: end
+      entity: KitchenCampfire

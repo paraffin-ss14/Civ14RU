@@ -1,0 +1,265 @@
+- type: entity
+  parent: BaseLathe
+  id: AnvilStone
+  name: stone anvil
+  description: A metalworking tool to produce weapons and armours.
+  components:
+    - type: Transform
+      noRot: false
+    - type: Sprite
+      sprite: Civ14/Objects/metallurgy.rsi
+      snapCardinals: true
+      state: stone_anvil
+    - type: ApcPowerReceiver
+      needsPower: false
+      powerLoad: 0
+    - type: Anchorable
+      delay: 2
+    - type: Lathe
+      producingSound: /Audio/Effects/metal_thud1.ogg
+      idleState: stone_anvil
+      runningState: stone_anvil_use
+      staticPacks:
+        - AnvilBronze
+        - AnvilGold
+        - AnvilSwordsAncient
+        - AnvilShieldsAncient
+    - type: MaterialStorage
+      whitelist:
+        tags:
+          - Sheet
+          - Ingot
+    - type: Construction
+      graph: AnvilStone
+      node: end
+
+- type: latheCategory
+  id: AnvilBronze
+  name: lathe-category-bronze
+
+- type: latheRecipePack
+  id: AnvilBronze
+  recipes:
+    - civ13_suit_bronze_chinese_lamellar
+    - civ13_suit_bronze_egyptian_lamellar
+    - civ13_suit_scaled_armor
+    - civ13_suit_bronze_chestplate
+    - civ13_head_greek_anax_helmet
+    - civ13_head_aries_helmet
+    - civ13_head_athena_helmet
+    - civ13_head_lochagos_helmet
+    - civ13_head_dimoerites_helmet
+    - civ13_head_bronze_phrigian_helmet
+    - civ13_head_bronze_osirus_headdress
+    - civ13_head_bronze_anubis_headdress
+    - civ13_head_egyptian_war_headdress
+    - civ13_head_chinese_warrior_helmet
+
+- type: latheCategory
+  id: AnvilGold
+  name: lathe-category-gold
+
+- type: latheRecipePack
+  id: AnvilGold
+  recipes:
+    - civ13_head_khepresh_war_crown
+    - civ13_head_pharoah_headdress
+    - civ13_head_nemes_headdress
+    - civ13_head_sol_invictus_helmet
+
+- type: latheRecipe
+  id: civ13_head_khepresh_war_crown
+  categories:
+    - AnvilGold
+  completetime: 10
+  materials:
+    Gold: 300
+  result: civ13_head_khepresh_war_crown
+- type: latheRecipe
+  id: civ13_head_pharoah_headdress
+  categories:
+    - AnvilGold
+  completetime: 10
+  materials:
+    Gold: 300
+  result: civ13_head_pharoah_headdress
+- type: latheRecipe
+  id: civ13_head_sol_invictus_helmet
+  categories:
+    - AnvilGold
+  completetime: 10
+  materials:
+    Gold: 300
+  result: civ13_head_sol_invictus_helmet
+- type: latheRecipe
+  id: civ13_head_nemes_headdress
+  categories:
+    - AnvilGold
+  completetime: 10
+  materials:
+    Gold: 300
+  result: civ13_head_nemes_headdress
+
+- type: latheRecipe
+  id: civ13_suit_bronze_chinese_lamellar
+  categories:
+    - AnvilBronze
+  completetime: 10
+  materials:
+    Bronze: 800
+  result: civ13_suit_bronze_chinese_lamellar
+
+- type: latheRecipe
+  id: civ13_suit_bronze_egyptian_lamellar
+  categories:
+    - AnvilBronze
+  completetime: 10
+  materials:
+    Bronze: 800
+  result: civ13_suit_bronze_egyptian_lamellar
+
+- type: latheRecipe
+  id: civ13_suit_scaled_armor
+  categories:
+    - AnvilBronze
+  completetime: 10
+  materials:
+    Bronze: 1000
+  result: civ13_suit_scaled_armor
+
+- type: latheRecipe
+  id: civ13_suit_bronze_chestplate
+  categories:
+    - AnvilBronze
+  completetime: 10
+  materials:
+    Bronze: 700
+  result: civ13_suit_bronze_chestplate
+
+- type: latheRecipe
+  id: civ13_head_greek_anax_helmet
+  categories:
+    - AnvilBronze
+  completetime: 10
+  materials:
+    Bronze: 500
+  result: civ13_head_greek_anax_helmet
+
+- type: latheRecipe
+  id: civ13_head_aries_helmet
+  categories:
+    - AnvilBronze
+  completetime: 10
+  materials:
+    Bronze: 500
+  result: civ13_head_aries_helmet
+
+- type: latheRecipe
+  id: civ13_head_athena_helmet
+  categories:
+    - AnvilBronze
+  completetime: 10
+  materials:
+    Bronze: 500
+  result: civ13_head_athena_helmet
+
+- type: latheRecipe
+  id: civ13_head_lochagos_helmet
+  categories:
+    - AnvilBronze
+  completetime: 10
+  materials:
+    Bronze: 300
+  result: civ13_head_lochagos_helmet
+
+- type: latheRecipe
+  id: civ13_head_dimoerites_helmet
+  categories:
+    - AnvilBronze
+  completetime: 10
+  materials:
+    Bronze: 300
+  result: civ13_head_dimoerites_helmet
+
+- type: latheRecipe
+  id: civ13_head_bronze_phrigian_helmet
+  categories:
+    - AnvilBronze
+  completetime: 10
+  materials:
+    Bronze: 200
+  result: civ13_head_bronze_phrigian_helmet
+
+- type: latheRecipe
+  id: civ13_head_bronze_osirus_headdress
+  categories:
+    - AnvilBronze
+  completetime: 10
+  materials:
+    Bronze: 500
+  result: civ13_head_bronze_osirus_headdress
+
+- type: latheRecipe
+  id: civ13_head_bronze_anubis_headdress
+  categories:
+    - AnvilBronze
+  completetime: 10
+  materials:
+    Bronze: 500
+  result: civ13_head_bronze_anubis_headdress
+
+- type: latheRecipe
+  id: civ13_head_egyptian_war_headdress
+  categories:
+    - AnvilBronze
+  completetime: 10
+  materials:
+    Bronze: 300
+  result: civ13_head_egyptian_war_headdress
+
+- type: latheRecipe
+  id: civ13_head_chinese_warrior_helmet
+  categories:
+    - AnvilBronze
+  completetime: 10
+  materials:
+    Bronze: 500
+  result: civ13_head_chinese_warrior_helmet
+
+## iron anvil
+
+- type: entity
+  parent: BaseLathe
+  id: AnvilIron
+  name: iron anvil
+  description: A metalworking tool to produce weapons and armours.
+  components:
+    - type: Transform
+      noRot: false
+    - type: Sprite
+      sprite: Civ14/Objects/metallurgy.rsi
+      snapCardinals: true
+      state: iron_anvil
+    - type: ApcPowerReceiver
+      needsPower: false
+      powerLoad: 0
+    - type: Anchorable
+      delay: 2
+    - type: Lathe
+      producingSound: /Audio/Effects/metal_thud1.ogg
+      idleState: iron_anvil
+      runningState: iron_anvil_use
+      staticPacks:
+        - AnvilBronze
+        - AnvilGold
+        - AnvilSwordsMedieval
+        - AnvilShieldsMedieval
+        - AnvilArmorMedieval
+    - type: MaterialStorage
+      whitelist:
+        tags:
+          - Sheet
+          - Ingot
+    - type: Construction
+      graph: AnvilIron
+      node: end

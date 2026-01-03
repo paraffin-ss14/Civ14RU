@@ -1,0 +1,123 @@
+- type: constructionGraph
+  id: StoneKiln
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: end
+          steps:
+            - material: Stone
+              amount: 25
+              doAfter: 15
+    - node: end
+      entity: StoneKiln
+
+- type: construction
+  name: stone kiln
+  id: StoneKiln
+  graph: StoneKiln
+  startNode: start
+  targetNode: end
+  category: construction-category-production
+  description: Used for smelting ore to produce metals.
+  icon: { sprite: Civ14/Objects/metallurgy.rsi, state: stone_kiln }
+  objectType: Structure
+  agemin: 0
+  agemax: 8
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: constructionGraph
+  id: Bloomery
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: end
+          steps:
+            - material: Stone
+              amount: 25
+              doAfter: 15
+    - node: end
+      entity: Bloomery
+
+- type: construction
+  name: bloomery
+  id: Bloomery
+  graph: Bloomery
+  startNode: start
+  targetNode: end
+  category: construction-category-production
+  description: Used for smelting iron.
+  icon: { sprite: Civ14/Objects/metallurgy.rsi, state: bloomery }
+  objectType: Structure
+  agemin: 1
+  agemax: 8
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: constructionGraph
+  id: AnvilStone
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: end
+          steps:
+            - material: Stone
+              amount: 20
+              doAfter: 15
+    - node: end
+      entity: AnvilStone
+
+- type: construction
+  name: stone anvil
+  id: AnvilStone
+  graph: AnvilStone
+  startNode: start
+  targetNode: end
+  category: construction-category-production
+  description: A metalworking tool to produce weapons and armours.
+  icon: { sprite: Civ14/Objects/metallurgy.rsi, state: stone_anvil }
+  objectType: Structure
+  agemin: 0
+  agemax: 8
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: constructionGraph
+  id: AnvilIron
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: end
+          steps:
+            - material: Iron
+              amount: 20
+              doAfter: 15
+    - node: end
+      entity: AnvilIron
+
+- type: construction
+  name: iron anvil
+  id: AnvilIron
+  graph: AnvilIron
+  startNode: start
+  targetNode: end
+  category: construction-category-production
+  description: A metalworking tool to produce weapons and armours.
+  icon: { sprite: Civ14/Objects/metallurgy.rsi, state: iron_anvil }
+  objectType: Structure
+  agemin: 2
+  agemax: 8
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked

@@ -1,0 +1,80 @@
+- type: construction
+  name: leather satchel
+  id: LeatherClothingBelt
+  graph: LeatherClothingBelt
+  startNode: start
+  targetNode: end
+  category: construction-category-storage
+  description: A leather satchel worn around the waist.
+  icon: { sprite: Civ14/Objects/Storage/satchel.rsi, state: icon }
+  objectType: Item
+  agemin: 0
+  agemax: 8
+
+- type: construction
+  name: leather backpack
+  id: LeatherClothingBackpack
+  graph: LeatherClothingBackpack
+  startNode: start
+  targetNode: end
+  category: construction-category-storage
+  description: A sturdy leather backpack.
+  icon: { sprite: Civ14/Objects/Storage/backpack.rsi, state: icon }
+  objectType: Item
+  agemin: 0
+  agemax: 8
+
+- type: construction
+  name: leather waterskin
+  id: LeatherWaterskin
+  graph: LeatherWaterskin
+  startNode: start
+  targetNode: end
+  category: construction-category-storage
+  description: A leather waterskin, used to carry liquids.
+  icon: { sprite: Civ14/Objects/Storage/storage.rsi, state: waterskin }
+  objectType: Item
+  agemin: 0
+  agemax: 8
+
+- type: constructionGraph
+  id: LeatherClothingBelt
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: end
+          steps:
+            - material: Leather
+              amount: 3
+              doAfter: 10
+    - node: end
+      entity: LeatherClothingBelt
+
+- type: constructionGraph
+  id: LeatherWaterskin
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: end
+          steps:
+            - material: Leather
+              amount: 3
+              doAfter: 10
+    - node: end
+      entity: LeatherWaterskin
+
+- type: constructionGraph
+  id: LeatherClothingBackpack
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: end
+          steps:
+            - material: Leather
+              amount: 6
+              doAfter: 10
+    - node: end
+      entity: LeatherClothingBackpack

@@ -1,0 +1,23 @@
+- type: reaction
+  id: CreateClay
+  impact: Low
+  quantized: true
+  conserveEnergy: false
+  reactants:
+    Dirt:
+      amount: 20
+    Water:
+      amount: 10
+  effects:
+    - !type:SpawnEntity
+      entity: MaterialClay1
+
+- type: reagent
+  id: Dirt
+  name: reagent-name-dirt
+  group: Foods
+  desc: reagent-desc-dirt
+  physicalDesc: reagent-physical-desc-earthy
+  flavor: tingly
+  color: brown
+  recognizable: true

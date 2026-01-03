@@ -1,0 +1,163 @@
+- type: construction
+  name: leather loincloth
+  id: LeatherLoincloth
+  graph: LeatherLoincloth
+  startNode: start
+  targetNode: end
+  category: construction-category-clothing
+  description: A simple leather loincloth.
+  icon: { sprite: Civ14/Clothing/exported/uniforms/leatherloincloth1.rsi, state: icon }
+  objectType: Item
+  agemin: 0
+  agemax: 8
+
+- type: construction
+  name: leather sandals
+  id: LeatherSandals
+  graph: LeatherSandals
+  startNode: start
+  targetNode: leathersandals
+  category: construction-category-clothing
+  description: A pair of simple, thin leather strap sandals. Covers up to the lower foot.
+  icon: { sprite: Civ14/Clothing/exported/shoes/flipflops.rsi, state: icon }
+  objectType: Item
+  agemin: 0
+  agemax: 8
+
+- type: construction
+  name: bone helmet
+  id: BoneHelmet
+  graph: BoneHelmet
+  startNode: start
+  targetNode: bonehelmet
+  category: construction-category-clothing
+  description: A helmet made of bones.
+  icon: { sprite: Civ14/Clothing/exported/hats/bone_helmet.rsi, state: icon }
+  objectType: Item
+  agemin: 0
+  agemax: 8
+
+- type: construction
+  name: leather cap
+  id: LeatherCap
+  graph: LeatherCap
+  startNode: start
+  targetNode: leathercap
+  category: construction-category-clothing
+  description: A cap made of leather.
+  icon: { sprite: Civ14/Clothing/exported/hats/roundcap_hat.rsi, state: icon }
+  objectType: Item
+  agemin: 0
+  agemax: 8
+
+- type: construction
+  name: bone armor
+  id: BoneArmor
+  graph: BoneArmor
+  startNode: start
+  targetNode: end
+  category: construction-category-clothing
+  description: A spooky armor, made of assorted bones.
+  icon: { sprite: Civ14/Clothing/exported/suits/bonearmor.rsi, state: icon }
+  objectType: Item
+  agemin: 0
+  agemax: 8
+
+- type: construction
+  name: quiver
+  id: ClothingBeltQuiver
+  graph: Quiver
+  startNode: start
+  targetNode: Quiver
+  category: construction-category-clothing
+  description: Can hold up to 15 arrows, and fits snug around your waist.
+  icon: { sprite: Clothing/Belt/quiver.rsi, state: icon }
+  objectType: Item
+  agemin: 0
+  agemax: 8
+- type: constructionGraph
+  id: LeatherLoincloth
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: end
+          steps:
+            - material: Leather
+              amount: 1
+              doAfter: 10
+    - node: end
+      entity: civ13_uniform_leather_loincloth
+
+- type: constructionGraph
+  id: LeatherSandals
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: leathersandals
+          steps:
+            - material: Leather
+              amount: 1
+              doAfter: 10
+    - node: leathersandals
+      entity: civ13_shoes_sandals_1
+
+- type: constructionGraph
+  id: BoneHelmet
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: bonehelmet
+          steps:
+            - material: Bones
+              amount: 4
+              doAfter: 10
+    - node: bonehelmet
+      entity: civ13_head_bone_helmet
+
+- type: constructionGraph
+  id: LeatherCap
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: leathercap
+          steps:
+            - material: Leather
+              amount: 2
+              doAfter: 10
+    - node: leathercap
+      entity: civ13_head_roundcap
+
+- type: constructionGraph
+  id: BoneArmor
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: end
+          steps:
+            - material: Bones
+              amount: 8
+              doAfter: 15
+    - node: end
+      entity: ClothingOuterArmorBone
+
+- type: constructionGraph
+  id: Quiver
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: Quiver
+          steps:
+            - material: Leather
+              amount: 5
+              doAfter: 2
+            - material: WoodPlank
+              amount: 1
+              doAfter: 2
+    - node: Quiver
+      entity: ClothingBeltQuiver

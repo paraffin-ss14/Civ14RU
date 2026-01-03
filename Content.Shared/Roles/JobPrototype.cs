@@ -1,3 +1,4 @@
+using Content.Shared._RMC14.Marines.Roles.Ranks;
 using Content.Shared.Access;
 using Content.Shared.Guidebook;
 using Content.Shared.Players.PlayTimeTracking;
@@ -153,6 +154,11 @@ namespace Content.Shared.Roles
         /// </summary>
         [DataField]
         public List<ProtoId<GuideEntryPrototype>>? Guides;
+
+        //RMC Ranks
+        [DataField]
+        public readonly Dictionary<ProtoId<RankPrototype>, HashSet<JobRequirement>?>? Ranks;
+
     }
 
     /// <summary>

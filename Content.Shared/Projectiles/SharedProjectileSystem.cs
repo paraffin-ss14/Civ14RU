@@ -249,4 +249,11 @@ public record struct ProjectileReflectAttemptEvent(EntityUid ProjUid, Projectile
 /// Raised when a projectile hits an entity
 /// </summary>
 [ByRefEvent]
-public record struct ProjectileHitEvent(DamageSpecifier Damage, EntityUid Target, EntityUid? Shooter = null);
+public sealed class ProjectileHitEvent(DamageSpecifier damage, EntityUid target, EntityUid? shooter = null)
+    : HandledEntityEventArgs
+{
+    public DamageSpecifier Damage => damage;
+    public EntityUid Target => target;
+    public EntityUid? Shooter => shooter;
+
+}

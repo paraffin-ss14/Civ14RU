@@ -1,0 +1,150 @@
+- type: entity
+  id: StoneKiln
+  name: stone kiln
+  parent: OreProcessor
+  description: Used for smelting ore to produce metals.
+  components:
+    - type: Sprite
+      sprite: Civ14/Objects/metallurgy.rsi
+      layers:
+        - state: stone_kiln_on
+          shader: unshaded
+          map: ["enum.LatheVisualLayers.IsRunning"]
+        - state: stone_kiln
+          map: ["enum.PowerDeviceVisualLayers.Powered"]
+        - state: stone_kiln
+          map: ["enum.MaterialStorageVisualLayers.Inserting"]
+        - state: stone_kiln
+          map: ["enum.WiresVisualLayers.MaintenancePanel"]
+    - type: Destructible
+      thresholds:
+        - trigger: !type:DamageTrigger
+            damage: 200
+          behaviors:
+            - !type:PlaySoundBehavior
+              sound:
+                collection: StoneBreak
+            - !type:DoActsBehavior
+              acts: ["Destruction"]
+    - type: ApcPowerReceiver
+      needsPower: false
+    - type: Lathe
+      idleState: stone_kiln
+      runningState: stone_kiln_on
+      staticPacks:
+        - StoneKiln
+    - type: Construction
+      graph: StoneKiln
+      node: end
+
+- type: latheRecipePack
+  id: StoneKiln
+  recipes:
+    - IngotCopper
+    - IngotTin
+    - IngotSilver
+    - IngotGold
+    - IngotBronze
+    - Glass
+
+- type: latheRecipe
+  id: IngotGold
+  result: IngotGold1
+  icon: { sprite: "/Textures/Objects/Materials/ingots.rsi", state: gold }
+  completetime: 2
+  materials:
+    RawGold: 100
+
+- type: latheRecipe
+  id: IngotSilver
+  result: IngotSilver1
+  icon: { sprite: "/Textures/Objects/Materials/ingots.rsi", state: silver }
+  completetime: 2
+  materials:
+    RawSilver: 100
+
+- type: latheRecipe
+  id: IngotBronze
+  result: IngotBronze1
+  icon: { sprite: "/Textures/Objects/Materials/ingots.rsi", state: sheet-bronze }
+  completetime: 2
+  materials:
+    RawCopper: 90
+    RawTin: 10
+
+- type: latheRecipe
+  id: IngotTin
+  result: IngotTin1
+  icon: { sprite: "/Textures/Objects/Materials/ingots.rsi", state: iron }
+  completetime: 2
+  materials:
+    RawTin: 100
+
+- type: latheRecipe
+  id: IngotCopper
+  result: IngotCopper1
+  icon: { sprite: "/Textures/Objects/Materials/ingots.rsi", state: copper }
+  completetime: 2
+  materials:
+    RawCopper: 100
+
+# bloomery
+- type: entity
+  id: Bloomery
+  name: bloomery
+  parent: OreProcessor
+  description: Used for smelting iron ore.
+  components:
+    - type: Sprite
+      sprite: Civ14/Objects/metallurgy.rsi
+      layers:
+        - state: bloomery_on
+          shader: unshaded
+          map: ["enum.LatheVisualLayers.IsRunning"]
+        - state: bloomery
+          map: ["enum.PowerDeviceVisualLayers.Powered"]
+        - state: bloomery
+          map: ["enum.MaterialStorageVisualLayers.Inserting"]
+        - state: bloomery
+          map: ["enum.WiresVisualLayers.MaintenancePanel"]
+    - type: Destructible
+      thresholds:
+        - trigger: !type:DamageTrigger
+            damage: 200
+          behaviors:
+            - !type:PlaySoundBehavior
+              sound:
+                collection: StoneBreak
+            - !type:DoActsBehavior
+              acts: ["Destruction"]
+    - type: ApcPowerReceiver
+      needsPower: false
+    - type: Lathe
+      idleState: bloomery
+      runningState: bloomery_on
+      staticPacks:
+        - Bloomery
+    - type: Construction
+      graph: Bloomery
+      node: end
+
+- type: latheRecipePack
+  id: Bloomery
+  recipes:
+    - IngotIron
+
+- type: latheRecipe
+  id: IngotIron
+  result: IngotIron1
+  icon: { sprite: "/Textures/Objects/Materials/ingots.rsi", state: sheet-iron }
+  completetime: 2
+  materials:
+    RawIron: 100
+
+- type: latheRecipe
+  id: Glass
+  result: SheetGlass1
+  icon: { sprite: "/Textures/Objects/Materials/Sheets/glass.rsi", state: glass }
+  completetime: 2
+  materials:
+    RawSand: 100

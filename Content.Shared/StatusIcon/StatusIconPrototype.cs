@@ -184,6 +184,7 @@ public sealed partial class FactionIconPrototype : StatusIconPrototype, IInherit
     public bool Abstract { get; private set; }
 }
 
+
 /// <summary>
 /// StatusIcons for debugging purposes
 /// </summary>

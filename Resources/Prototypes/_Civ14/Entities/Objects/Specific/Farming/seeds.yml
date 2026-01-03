@@ -1,0 +1,266 @@
+- type: entity
+  parent: BaseItem
+  id: SeedBaseCiv
+  abstract: true
+  components:
+    - type: Seed
+      seedId: wheat
+    - type: Sprite
+      sprite: Civ14/Objects/farming.rsi
+      state: seeds
+    - type: STWeight
+      self: 0.01
+    - type: Item
+      size: Small
+    - type: Tag
+      tags:
+        - Burnable
+    - type: BurnFuel
+      burnTime: 0.3
+- type: entity
+  parent: SeedBaseCiv
+  id: WheatSeedsCiv
+  name: "wheat seeds"
+  components:
+    - type: Seed
+      seedId: wheat
+    - type: Sprite
+      color: "#B87333"
+    - type: Stack
+      stackType: StackWheatSeedsCiv
+      count: 1
+- type: entity
+  parent: SeedBaseCiv
+  id: BarleySeedsCiv
+  name: "barley seeds"
+  components:
+    - type: Seed
+      seedId: barley
+    - type: Sprite
+      color: "#599e04"
+    - type: Stack
+      stackType: StackBarleySeedsCiv
+      count: 1
+- type: entity
+  parent: SeedBaseCiv
+  id: CornSeedsCiv
+  name: "corn seeds"
+  components:
+    - type: Seed
+      seedId: corn
+    - type: Sprite
+      color: "#FFFF00"
+    - type: Stack
+      stackType: StackCornSeedsCiv
+      count: 1
+- type: entity
+  parent: SeedBaseCiv
+  id: RiceSeedsCiv
+  name: "rice seeds"
+  components:
+    - type: Seed
+      seedId: rice
+    - type: Sprite
+      state: riceseeds
+    - type: Stack
+      stackType: StackRiceSeedsCiv
+      count: 1
+- type: entity
+  parent: SeedBaseCiv
+  id: PotatoSeedsCiv
+  name: "potato seeds"
+  components:
+    - type: Seed
+      seedId: potato
+    - type: Sprite
+      state: potato
+    - type: Stack
+      stackType: StackPotatoSeedsCiv
+      count: 1
+- type: entity
+  parent: SeedBaseCiv
+  id: HempSeedsCiv
+  name: "hemp seeds"
+  components:
+    - type: Seed
+      seedId: hemp
+    - type: Sprite
+      color: "#B87333"
+    - type: Stack
+      stackType: StackHempSeedsCiv
+      count: 1
+- type: entity
+  parent: SeedBaseCiv
+  id: HealingHerbsSeedsCiv
+  name: "healing herbs seeds"
+  components:
+    - type: Seed
+      seedId: HealingHerbs
+    - type: Sprite
+      color: "#17211B"
+    - type: Stack
+      stackType: StackHealingHerbsSeedsCiv
+      count: 1
+- type: entity
+  parent: SeedBaseCiv
+  id: ComfreySeedsCiv
+  name: "comfrey seeds"
+  components:
+    - type: Seed
+      seedId: ComfreyHerbs
+    - type: Sprite
+      color: "#A020F0"
+    - type: Stack
+      stackType: StackComfreySeedsCiv
+      count: 1
+- type: entity
+  parent: SeedBaseCiv
+  id: YarrowSeedsCiv
+  name: "yarrow seeds"
+  components:
+    - type: Seed
+      seedId: YarrowHerbs
+    - type: Sprite
+      color: "#eef1a9"
+    - type: Stack
+      stackType: StackYarrowSeedsCiv
+      count: 1
+- type: entity
+  parent: SeedBaseCiv
+  id: ElderflowerSeedsCiv
+  name: "elderflower seeds"
+  components:
+    - type: Seed
+      seedId: ElderflowerHerbs
+    - type: Sprite
+      color: "#e4e5ce"
+    - type: Stack
+      stackType: StackElderflowerSeedsCiv
+      count: 1
+- type: entity
+  parent: SeedBaseCiv
+  id: MilkThistleSeedsCiv
+  name: "milk thistle seeds"
+  components:
+    - type: Seed
+      seedId: MilkThistleHerbs
+    - type: Sprite
+      color: "#730561"
+    - type: Stack
+      stackType: StackMilkThistleSeedsCiv
+      count: 1
+- type: entity
+  parent: SeedBaseCiv
+  id: AloeSeedsCiv
+  name: "aloe vera seeds"
+  components:
+    - type: Seed
+      seedId: aloe
+    - type: Sprite
+      color: "#7E9B39"
+    - type: Stack
+      stackType: StackAloeSeedsCiv
+      count: 1
+- type: entity
+  parent: SeedBaseCiv
+  id: PoppySeedsCiv
+  name: "poppy seeds"
+  components:
+    - type: Seed
+      seedId: poppy
+    - type: Sprite
+      color: "#580000"
+    - type: Stack
+      stackType: StackPoppySeedsCiv
+      count: 1
+
+- type: stack
+  id: StackElderflowerSeedsCiv
+  name: elderflower seeds
+  icon: { sprite: /Textures/Civ14/Objects/Farming/seeds.rsi, state: seeds_old }
+  spawn: ElderflowerSeedsCiv
+  maxCount: 30
+
+- type: stack
+  id: StackMilkThistleSeedsCiv
+  name: milk thistle seeds
+  icon: { sprite: /Textures/Civ14/Objects/Farming/seeds.rsi, state: seeds_old }
+  spawn: MilkThistleSeedsCiv
+  maxCount: 30
+
+- type: stack
+  id: StackComfreySeedsCiv
+  name: comfrey seeds
+  icon: { sprite: /Textures/Civ14/Objects/Farming/seeds.rsi, state: seeds_old }
+  spawn: ComfreySeedsCiv
+  maxCount: 30
+
+- type: stack
+  id: StackYarrowSeedsCiv
+  name: yarrow seeds
+  icon: { sprite: /Textures/Civ14/Objects/Farming/seeds.rsi, state: seeds_old }
+  spawn: YarrowSeedsCiv
+  maxCount: 30
+
+- type: stack
+  id: StackHealingHerbsSeedsCiv
+  name: healing herbs seeds
+  icon: { sprite: /Textures/Civ14/Objects/Farming/seeds.rsi, state: seeds_old }
+  spawn: HealingHerbsSeedsCiv
+  maxCount: 30
+
+- type: stack
+  id: StackWheatSeedsCiv
+  name: wheat seeds
+  icon: { sprite: /Textures/Civ14/Objects/Farming/seeds.rsi, state: seeds_old }
+  spawn: WheatSeedsCiv
+  maxCount: 30
+
+- type: stack
+  id: StackBarleySeedsCiv
+  name: barley seeds
+  icon: { sprite: /Textures/Civ14/Objects/Farming/seeds.rsi, state: seeds_old }
+  spawn: BarleySeedsCiv
+  maxCount: 30
+
+- type: stack
+  id: StackCornSeedsCiv
+  name: corn seeds
+  icon: { sprite: /Textures/Civ14/Objects/Farming/seeds.rsi, state: seeds_old }
+  spawn: CornSeedsCiv
+  maxCount: 30
+
+- type: stack
+  id: StackRiceSeedsCiv
+  name: rice seeds
+  icon: { sprite: /Textures/Civ14/Objects/Farming/seeds.rsi, state: riceseeds }
+  spawn: RiceSeedsCiv
+  maxCount: 30
+
+- type: stack
+  id: StackPotatoSeedsCiv
+  name: potato seeds
+  icon: { sprite: /Textures/Civ14/Objects/Farming/seeds.rsi, state: potato }
+  spawn: PotatoSeedsCiv
+  maxCount: 30
+
+- type: stack
+  id: StackHempSeedsCiv
+  name: hemp seeds
+  icon: { sprite: /Textures/Civ14/Objects/Farming/seeds.rsi, state: seeds_old }
+  spawn: HempSeedsCiv
+  maxCount: 30
+
+- type: stack
+  id: StackAloeSeedsCiv
+  name: aloe vera seeds
+  icon: { sprite: /Textures/Civ14/Objects/Farming/seeds.rsi, state: seeds_old }
+  spawn: AloeSeedsCiv
+  maxCount: 30
+
+- type: stack
+  id: StackPoppySeedsCiv
+  name: poppy seeds
+  icon: { sprite: /Textures/Civ14/Objects/Farming/seeds.rsi, state: seeds_old }
+  spawn: PoppySeedsCiv
+  maxCount: 30

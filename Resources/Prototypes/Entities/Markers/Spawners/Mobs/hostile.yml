@@ -14,20 +14,6 @@
 
 - type: entity
   parent: MarkerBase
-  id: SpawnMobBear
-  name: Space Bear Spawner
-  components:
-  - type: Sprite
-    layers:
-    - state: green
-    - state: bear
-      sprite: Mobs/Animals/bear.rsi
-  - type: ConditionalSpawner
-    prototypes:
-    - MobBearSpace
-
-- type: entity
-  parent: MarkerBase
   id: SpawnMobBehonker
   name: behonker Spawner
   components:

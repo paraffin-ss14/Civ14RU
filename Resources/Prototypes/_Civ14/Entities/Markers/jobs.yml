@@ -1,0 +1,225 @@
+# Nomad
+
+- type: entity
+  id: SpawnPointNomads
+  parent: SpawnPointJobBase
+  name: nomad
+  components:
+    - type: SpawnPoint
+      job_id: Nomad
+    - type: Sprite
+      layers:
+        - state: green
+        - state: passenger
+
+# TDM
+
+- type: entity
+  id: SpawnPointEnglish
+  parent: SpawnPointJobBase
+  name: english spawner
+  suffix: faction spawn
+  components:
+    - type: SpawnPoint
+      faction: England
+      spawn_type: Faction
+    - type: Sprite
+      sprite: Markers/cross.rsi
+      layers:
+        - state: red
+        - sprite: Civ14/Objects/decals.rsi
+          state: flag_uk
+
+- type: entity
+  id: SpawnPointFrench
+  parent: SpawnPointJobBase
+  name: french spawner
+  suffix: faction spawn
+  components:
+    - type: SpawnPoint
+      faction: France
+      spawn_type: Faction
+    - type: Sprite
+      sprite: Markers/cross.rsi
+      layers:
+        - state: blue
+        - sprite: Civ14/Objects/decals.rsi
+          state: flag_france
+
+- type: entity
+  id: SpawnPointGerman
+  parent: SpawnPointJobBase
+  name: german spawner
+  suffix: faction spawn
+  components:
+    - type: SpawnPoint
+      faction: Germany
+      spawn_type: Faction
+    - type: Sprite
+      sprite: Markers/cross.rsi
+      layers:
+        - state: green
+        - sprite: Civ14/Objects/decals.rsi
+          state: flag_germany
+
+- type: entity
+  id: SpawnPointSoviet
+  parent: SpawnPointJobBase
+  name: soviet spawner
+  suffix: faction spawn
+  components:
+    - type: SpawnPoint
+      faction: Soviet
+      spawn_type: Faction
+    - type: Sprite
+      sprite: Markers/cross.rsi
+      layers:
+        - state: pink
+        - sprite: Civ14/Objects/decals.rsi
+          state: flag_sov
+
+- type: entity
+  id: SpawnPointUS
+  parent: SpawnPointJobBase
+  name: us spawner
+  suffix: faction spawn
+  components:
+    - type: SpawnPoint
+      faction: US
+      spawn_type: Faction
+    - type: Sprite
+      sprite: Markers/cross.rsi
+      layers:
+        - state: blue
+        - sprite: Civ14/Objects/decals.rsi
+          state: flag_usa
+
+- type: entity
+  id: SpawnPointSovietCW
+  parent: SpawnPointJobBase
+  name: sovietcw spawner
+  suffix: faction spawn
+  components:
+    - type: SpawnPoint
+      faction: SovietCW
+      spawn_type: Faction
+    - type: Sprite
+      sprite: Markers/cross.rsi
+      layers:
+        - state: pink
+        - sprite: Civ14/Objects/decals.rsi
+          state: flag_sov
+
+- type: entity
+  id: SpawnPointInsurgents
+  parent: SpawnPointJobBase
+  name: insurgent spawner
+  suffix: faction spawn
+  components:
+    - type: SpawnPoint
+      faction: Insurgents
+      spawn_type: Faction
+    - type: Sprite
+      sprite: Markers/cross.rsi
+      layers:
+        - state: green
+        - sprite: Civ14/Objects/decals.rsi
+          state: flag_greenistan
+
+- type: entity
+  id: SpawnPointBlugoslavia
+  parent: SpawnPointJobBase
+  name: blugoslavia spawner
+  suffix: faction spawn
+  components:
+    - type: SpawnPoint
+      faction: Blugoslavia
+      spawn_type: Faction
+    - type: Sprite
+      sprite: Markers/cross.rsi
+      layers:
+        - state: blue # duh
+        - sprite: Civ14/Objects/decals.rsi
+          state: flag_blugoslavia
+
+- type: entity
+  id: SpawnPointUnitedNations
+  parent: SpawnPointJobBase
+  name: UN spawner
+  suffix: faction spawn
+  components:
+    - type: SpawnPoint
+      faction: UnitedNations
+      spawn_type: Faction
+    - type: Sprite
+      sprite: Markers/cross.rsi
+      layers:
+        - state: blue # duh
+        - sprite: Civ14/Objects/decals.rsi
+          state: flag_un
+
+# Gulag
+
+- type: entity
+  id: SpawnPointGulagSoviet
+  parent: SpawnPointJobBase
+  name: gulag soviet spawner
+  suffix: faction spawn
+  components:
+    - type: SpawnPoint
+      faction: GulagSoviet
+      spawn_type: Faction
+    - type: Sprite
+      sprite: Markers/cross.rsi
+      layers:
+        - state: pink
+        - sprite: Civ14/Objects/decals.rsi
+          state: flag_sov
+
+- type: entity
+  id: SpawnPointGulagPrisonerGerman
+  parent: SpawnPointJobBase
+  name: gulag german prisoner spawner
+  suffix: faction spawn
+  components:
+    - type: SpawnPoint
+      faction: GulagPrisonerGerman
+      spawn_type: Faction
+    - type: Sprite
+      sprite: Markers/cross.rsi
+      layers:
+        - state: pink
+        - sprite: Civ14/Objects/decals.rsi
+          state: flag_germany_republic
+
+- type: entity
+  id: SpawnPointGulagPrisonerUkrainian
+  parent: SpawnPointJobBase
+  name: gulag ukrainian prisoner spawner
+  suffix: faction spawn
+  components:
+    - type: SpawnPoint
+      faction: GulagPrisonerUkrainian
+      spawn_type: Faction
+    - type: Sprite
+      sprite: Markers/cross.rsi
+      layers:
+        - state: pink
+        - sprite: Civ14/Objects/decals.rsi
+          state: flag_ukraine
+
+- type: entity
+  id: SpawnPointGulagPrisonerPoland
+  parent: SpawnPointJobBase
+  name: gulag polish prisoner spawner
+  suffix: faction spawn
+  components:
+    - type: SpawnPoint
+      faction: GulagPrisonerPoland
+      spawn_type: Faction
+    - type: Sprite
+      sprite: Markers/cross.rsi
+      layers:
+        - state: pink
+        - sprite: Civ14/Objects/decals.rsi
+          state: flag_poland

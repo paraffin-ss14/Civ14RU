@@ -1,0 +1,333 @@
+- type: construction
+  name: bone shovel
+  id: BoneShovel
+  graph: BoneShovel
+  startNode: start
+  targetNode: boneshovel
+  category: construction-category-tools
+  description: A crude bone shovel.
+  icon: { sprite: Civ14/Objects/StoneAge/bone_shovel.rsi, state: icon }
+  objectType: Item
+  agemin: 0
+  agemax: 8
+
+- type: construction
+  name: stone shovel
+  id: StoneShovel
+  graph: StoneShovel
+  startNode: start
+  targetNode: stoneshovel
+  category: construction-category-tools
+  description: A crude stone shovel.
+  icon: { sprite: Civ14/Objects/StoneAge/stone_shovel.rsi, state: icon }
+  objectType: Item
+  agemin: 0
+  agemax: 8
+
+- type: construction
+  name: bone pickaxe
+  id: BonePickaxe
+  graph: BonePickaxe
+  startNode: start
+  targetNode: bonepickaxe
+  category: construction-category-tools
+  description: A crude bone pickaxe.
+  icon: { sprite: Civ14/Objects/StoneAge/bone_pickaxe.rsi, state: icon }
+  objectType: Item
+  agemin: 0
+  agemax: 8
+
+- type: construction
+  name: bone axe
+  id: BoneAxe
+  graph: BoneAxe
+  startNode: start
+  targetNode: boneaxe
+  category: construction-category-tools
+  description: A crude bone axe.
+  icon: { sprite: Civ14/Objects/StoneAge/bone_axe.rsi, state: icon }
+  objectType: Item
+  agemin: 0
+  agemax: 8
+
+- type: construction
+  name: bone knife
+  id: BoneKnife
+  graph: BoneKnife
+  startNode: start
+  targetNode: boneknife
+  category: construction-category-tools
+  description: A crude bone knife.
+  icon: { sprite: Civ14/Objects/StoneAge/bone_knife.rsi, state: icon }
+  objectType: Item
+  agemin: 0
+  agemax: 8
+
+- type: construction
+  name: flint axe
+  id: FlintAxe
+  graph: FlintAxe
+  startNode: start
+  targetNode: flintaxe
+  category: construction-category-tools
+  description: A crude flint axe.
+  icon: { sprite: Civ14/Objects/StoneAge/flint_axe.rsi, state: icon }
+  objectType: Item
+  agemin: 0
+  agemax: 8
+
+- type: construction
+  name: plough
+  id: Plough
+  graph: Plough
+  startNode: start
+  targetNode: plough
+  category: construction-category-tools
+  description: A simple wood plough.
+  icon: { sprite: Civ14/Objects/items.rsi, state: plough }
+  objectType: Item
+  agemin: 0
+  agemax: 8
+
+- type: construction
+  name: wood hammer
+  id: WoodHammer
+  graph: WoodHammer
+  startNode: start
+  targetNode: woodhammer
+  category: construction-category-tools
+  description: A simple wood hammer.
+  icon: { sprite: Civ14/Objects/StoneAge/wood_hammer.rsi, state: icon }
+  objectType: Item
+  agemin: 0
+  agemax: 8
+
+- type: construction
+  name: wood bucket
+  id: Bucket
+  graph: Bucket
+  startNode: start
+  targetNode: bucket
+  category: construction-category-tools
+  description: A simple wood bucket.
+  icon: { sprite: Objects/Tools/bucket.rsi, state: icon }
+  objectType: Item
+  agemin: 0
+  agemax: 8
+
+- type: constructionGraph
+  id: BoneShovel
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: boneshovel
+          steps:
+            - material: Bones
+              amount: 4
+              doAfter: 4
+            - material: WoodPlank
+              amount: 4
+              doAfter: 4
+    - node: boneshovel
+      entity: BoneShovel
+
+- type: constructionGraph
+  id: StoneShovel
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: stoneshovel
+          steps:
+            - material: Stone
+              amount: 3
+              doAfter: 3
+            - material: WoodPlank
+              amount: 4
+              doAfter: 4
+    - node: stoneshovel
+      entity: StoneShovel
+
+- type: constructionGraph
+  id: BonePickaxe
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: bonepickaxe
+          steps:
+            - material: Bones
+              amount: 4
+              doAfter: 4
+            - material: WoodPlank
+              amount: 4
+              doAfter: 4
+    - node: bonepickaxe
+      entity: BonePickaxe
+
+- type: constructionGraph
+  id: BoneAxe
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: boneaxe
+          steps:
+            - material: Bones
+              amount: 5
+              doAfter: 5
+            - material: WoodPlank
+              amount: 4
+              doAfter: 4
+    - node: boneaxe
+      entity: BoneAxe
+
+- type: constructionGraph
+  id: BoneKnife
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: boneknife
+          steps:
+            - material: Bones
+              amount: 2
+              doAfter: 5
+            - material: WoodPlank
+              amount: 1
+              doAfter: 2
+    - node: boneknife
+      entity: BoneKnife
+
+- type: constructionGraph
+  id: Plough
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: plough
+          steps:
+            - material: WoodPlank
+              amount: 4
+              doAfter: 6
+    - node: plough
+      entity: Plough
+
+- type: constructionGraph
+  id: FlintAxe
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: flintaxe
+          steps:
+            - tag: SharpenedFlint
+              name: a sharpened flint
+              icon:
+                sprite: Civ14/Objects/old_weapons.rsi
+                state: sharpened_flint
+              doAfter: 5
+            - tag: SharpenedStick
+              name: a sharpened stick
+              icon:
+                sprite: Civ14/Objects/old_weapons.rsi
+                state: sharpened_stick
+              doAfter: 4
+    - node: flintaxe
+      entity: FlintAxe
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SharpenedFlint
+            - !type:SpawnPrototype
+              prototype: SharpenedStick
+            - !type:DeleteEntity {}
+          steps:
+            - tool: Prying
+              doAfter: 2
+
+- type: constructionGraph
+  id: WoodHammer
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: woodhammer
+          steps:
+            - material: WoodPlank
+              amount: 4
+              doAfter: 6
+    - node: woodhammer
+      entity: WoodHammer
+
+- type: constructionGraph
+  id: Bucket
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: bucket
+          steps:
+            - material: WoodPlank
+              amount: 3
+              doAfter: 3
+    - node: bucket
+      entity: Bucket
+
+- type: construction
+  name: hoe
+  id: Hoe
+  graph: Hoe
+  startNode: start
+  targetNode: end
+  category: construction-category-tools
+  description: Used to remove weeds.
+  icon: { sprite: Objects/Tools/Hydroponics/hoe.rsi, state: icon }
+  objectType: Item
+  agemin: 0
+  agemax: 8
+
+- type: constructionGraph
+  id: Hoe
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: end
+          steps:
+            - material: WoodPlank
+              amount: 3
+              doAfter: 6
+    - node: end
+      entity: HydroponicsToolMiniHoe
+
+- type: construction
+  name: "fletcher's workstation"
+  id: FletchersWorkstation
+  graph: FletchersWorkstation
+  startNode: start
+  targetNode: end
+  category: construction-category-production
+  description: Used to produce bows and arrows.
+  icon: { sprite: Civ14/Objects/structures.rsi, state: fletchersbench }
+  objectType: Structure
+  agemin: 0
+  agemax: 8
+
+- type: constructionGraph
+  id: FletchersWorkstation
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: end
+          completed:
+            - !type:SnapToGrid
+          steps:
+            - material: WoodPlank
+              amount: 8
+              doAfter: 15
+    - node: end
+      entity: FletchersWorkstation

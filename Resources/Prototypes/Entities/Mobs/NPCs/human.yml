@@ -1,18 +1,4 @@
 - type: entity
-  name: civilian
-  parent: BaseMobHuman
-  id: MobCivilian
-  description: A miserable pile of secrets.
-  components:
-  - type: InputMover
-  - type: MobMover
-  - type: Loadout
-    prototypes: [LimitedPassengerGear]
-  - type: NpcFactionMember
-    factions:
-    - NanoTrasen
-
-- type: entity
   name: salvager
   parent: BaseMobHuman
   id: MobSalvager
