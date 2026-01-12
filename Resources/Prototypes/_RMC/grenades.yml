@@ -1,0 +1,101 @@
+- type: entity
+  abstract: true
+  parent: GrenadeBase
+  id: CMGrenadeBase
+  name: grenade
+  description: Duck and cover.
+  components:
+  - type: Explosive
+    explosionType: RMC
+  - type: ExplodeOnTrigger
+    keysIn:
+    - timer
+  - type: TimerTrigger
+    delay: 4
+    beepSound:
+      path: "/Audio/_RMC14/Explosion/armbomb.ogg"
+      params:
+        volume: -5
+    initialBeepDelay: 0
+    beepInterval: 10
+    doPopup: false
+  - type: IgnorePredictionHide
+  - type: Clothing
+    slots:
+    - suitStorage
+  - type: Destructible
+    thresholds: []
+
+- type: entity
+  abstract: true
+  id: RMCM40DPTags
+  components:
+  - type: Tag
+    tags:
+    - Grenade
+    - LauncherCompatibleGrenade
+    - RMCGrenadeM40
+
+- type: entity
+  parent:
+  - CMGrenadeBase
+  - RMCM40DPTags
+  id: CMGrenadeHighExplosive
+  name: 30mm HEDP grenade
+  description: High-Explosive Dual-Purpose. A small, but deceptively strong blast grenade that has been phasing out the M15 HE grenades alongside the 30mm HEFA. Capable of being loaded in grenade launchers, or thrown by hand.
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Grenades/m40hedp.rsi
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    maxIntensity: 20 # max 100 brute, 100 burn
+    intensitySlope: 6
+    totalIntensity: 200
+    canCreateVacuum: false
+  - type: Ammo
+  - type: CMExplosionEffect
+  - type: Tag
+    tags:
+    - Grenade
+    - LauncherCompatibleGrenade
+    - RMCGrenadeM40
+    - RMCGrenadeHEDP
+
+# region Shrapnel
+- type: entity
+  parent: BaseBullet
+  id: CMProjectileShrapnel
+  name: shrapnel
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Projectiles/shotgun_projectiles.rsi
+    layers:
+    - state: buckshot
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+        - LowImpassable
+      fly-by:
+        shape: !type:PhysShapeCircle
+          radius: 1.5
+        layer:
+        - Impassable
+        - MidImpassable
+        - HighImpassable
+        - LowImpassable
+        hard: False
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 25
+    deleteOnCollide: true
+  - type: TimedDespawn
+    lifetime: 0.25

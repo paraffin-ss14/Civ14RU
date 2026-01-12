@@ -1,0 +1,117 @@
+# region Effects
+- type: entity
+  id: CMExplosionEffectGrenade
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _RMC14/Effects/grenade_explosion.rsi
+    state: grenade
+  - type: TimedDespawn
+    lifetime: 0.6
+
+- type: entity
+  id: RMCExplosionEffectGrenadeShockWave
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.5
+  - type: RMCExplosionShockWave
+
+- type: entity
+  id: CMExplosionEffectShrapnel1
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TriggerOnCollide
+    fixtureID: fix1
+    maxTriggers: 1
+  - type: CollisionWake
+  - type: Physics
+    bodyType: Dynamic
+    fixedRotation: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 20
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/shrapnel.rsi
+    state: shrapnel_bright1
+  - type: TimedDespawn
+    lifetime: 0.5
+  - type: DeleteOnTrigger
+
+- type: entity
+  parent: CMExplosionEffectShrapnel1
+  id: CMExplosionEffectShrapnel2
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    state: shrapnel_bright2
+
+# region Shader
+- type: shader
+  id: RMCShockWave
+  kind: source
+  path: "/Textures/Shaders/shock_wave.swsl"
+
+# region Tags
+- type: Tag
+  id: RMCGrenadeHEDP
+
+- type: Tag
+  id: RMCGrenadeHEFA
+
+- type: Tag
+  id: RMCGrenadeM40
+
+- type: Tag
+  id: RMCGrenadeTraining
+
+- type: Tag
+  id: RMCGrenadeRiot
+
+- type: Tag
+  id: RMCGrenadeFlashBang
+
+- type: Tag
+  id: RMCGrenadeIED
+
+- type: Tag
+  id: LauncherCompatibleGrenade
+
+# region Explosion
+- type: explosion
+  id: RMC
+  damagePerIntensity:
+    types:
+      Blunt: 5
+      Heat: 5
+  tileBreakChance: [0, 0.5, 1]
+  tileBreakIntensity: [0, 10, 30]
+  tileBreakRerollReduction: 20
+  lightColor: Orange
+  texturePath: /Textures/Effects/fire.rsi
+  fireColor: Transparent
+  sound:
+    collection: CMExplosion # TODO RMC14 bigboom
+    params:
+      volume: -3
+  smallSound:
+    collection: CMExplosion
+    params:
+      volume: -3
+
+- type: soundCollection
+  id: CMExplosion
+  files:
+  - /Audio/_RMC14/Explosion/explosion1.ogg
+  - /Audio/_RMC14/Explosion/explosion2.ogg
+  - /Audio/_RMC14/Explosion/explosion3.ogg
+  - /Audio/_RMC14/Explosion/explosion4.ogg
+  - /Audio/_RMC14/Explosion/explosion5.ogg

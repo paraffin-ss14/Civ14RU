@@ -1,19 +1,26 @@
-﻿using Content.Shared.Administration.Logs;
+﻿using Content.Shared._RMC14.Explosion;
+using Content.Shared.Administration.Logs;
+using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.Components.SolutionManager;
+using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Database;
 using Content.Shared.DeviceLinking;
 using Content.Shared.EntityTable;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Mind;
+using Content.Shared.Payload.Components;
 using Content.Shared.Popups;
 using Content.Shared.Roles;
 using Content.Shared.Timing;
 using Content.Shared.Trigger.Components;
 using Content.Shared.Whitelist;
+using Robust.Shared.Audio;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Timing;
 using Robust.Shared.Random;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Containers;
 
 
 namespace Content.Shared.Trigger.Systems;
@@ -33,6 +40,8 @@ public sealed partial class TriggerSystem : EntitySystem
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
     [Dependency] private readonly FixtureSystem _fixture = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -141,6 +150,66 @@ public sealed partial class TriggerSystem : EntitySystem
 
         _adminLogger.Add(LogType.Trigger, $"A timer trigger was stopped before triggering on entity {ToPrettyString(ent.Owner):timer}");
         return true;
+    }
+
+    public void HandleTimerTrigger(EntityUid uid, EntityUid? user, float delay, float beepInterval, float? initialBeepDelay, SoundSpecifier? beepSound)
+    {
+        if (delay <= 0)
+        {
+            RemComp<ActiveTimerTriggerComponent>(uid);
+            Trigger(uid, user);
+            return;
+        }
+
+        if (HasComp<ActiveTimerTriggerComponent>(uid))
+            return;
+
+        if (user != null)
+        {
+            // Check if entity is bomb/mod. grenade/etc
+            if (_container.TryGetContainer(uid, "payload", out BaseContainer? container) &&
+                container.ContainedEntities.Count > 0 &&
+                TryComp(container.ContainedEntities[0], out ChemicalPayloadComponent? chemicalPayloadComponent))
+            {
+                // If a beaker is missing, the entity won't explode, so no reason to log it
+                if (chemicalPayloadComponent?.BeakerSlotA.Item is not { } beakerA ||
+                    chemicalPayloadComponent?.BeakerSlotB.Item is not { } beakerB ||
+                    !TryComp(beakerA, out SolutionContainerManagerComponent? containerA) ||
+                    !TryComp(beakerB, out SolutionContainerManagerComponent? containerB) ||
+                    !TryComp(beakerA, out FitsInDispenserComponent? fitsA) ||
+                    !TryComp(beakerB, out FitsInDispenserComponent? fitsB) ||
+                    !_solutionContainerSystem.TryGetSolution((beakerA, containerA), fitsA.Solution, out _, out var solutionA) ||
+                    !_solutionContainerSystem.TryGetSolution((beakerB, containerB), fitsB.Solution, out _, out var solutionB))
+                    return;
+
+                _adminLogger.Add(LogType.Trigger,
+                    $"{ToPrettyString(user.Value):user} started a {delay} second timer trigger on entity {ToPrettyString(uid):timer}, which contains {SharedSolutionContainerSystem.ToPrettyString(solutionA)} in one beaker and {SharedSolutionContainerSystem.ToPrettyString(solutionB)} in the other.");
+            }
+            else
+            {
+                _adminLogger.Add(LogType.Trigger,
+                    $"{ToPrettyString(user.Value):user} started a {delay} second timer trigger on entity {ToPrettyString(uid):timer}");
+            }
+
+        }
+        else
+        {
+            _adminLogger.Add(LogType.Trigger,
+                $"{delay} second timer trigger started on entity {ToPrettyString(uid):timer}");
+        }
+
+        var active = AddComp<ActiveTimerTriggerComponent>(uid);
+        active.TimeRemaining = delay;
+        active.User = user;
+        active.BeepSound = beepSound;
+        active.BeepInterval = beepInterval;
+        active.TimeUntilBeep = initialBeepDelay == null ? active.BeepInterval : initialBeepDelay.Value;
+
+        var ev = new ActiveTimerTriggerEvent(user);
+        RaiseLocalEvent(uid, ref ev, true);
+
+        if (TryComp<AppearanceComponent>(uid, out var appearance))
+            _appearance.SetData(uid, TriggerVisuals.VisualState, TriggerVisualState.Primed, appearance);
     }
 
     /// <summary>

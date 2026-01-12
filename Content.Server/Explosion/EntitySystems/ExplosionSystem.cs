@@ -6,6 +6,7 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Server.Destructible;
 using Content.Server.NodeContainer.EntitySystems;
 using Content.Server.NPC.Pathfinding;
+using Content.Shared._RMC14.Explosion;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Camera;
 using Content.Shared.CCVar;
@@ -170,6 +171,9 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
             explosive.MaxTileBreak,
             explosive.CanCreateVacuum,
             user);
+
+        var ev = new CMExplosiveTriggeredEvent();
+        RaiseLocalEvent(uid, ref ev);
 
         if (explosive.DeleteAfterExplosion ?? delete)
             QueueDel(uid);
