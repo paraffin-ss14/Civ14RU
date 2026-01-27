@@ -43,6 +43,7 @@ public static class StyleClass
     public const string LabelMonospaceText = "ConsoleText";
     public const string LabelMonospaceHeading = "ConsoleText";
     public const string LabelMonospaceSubHeading = "ConsoleText";
+    public const string LabelSignWoodHeading = "SignWood";
 
     public const string BackgroundPanel = "BackgroundPanel"; // replaces `AngleRect`
     public const string BackgroundPanelOpenLeft = "BackgroundPanelOpenLeft"; // replaces `BackgroundOpenLeft`

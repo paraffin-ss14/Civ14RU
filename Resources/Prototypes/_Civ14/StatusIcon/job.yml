@@ -230,3 +230,13 @@
     sprite: /Textures/Interface/Misc/civ_hud_squads.rsi
     state: squad_6
   jobName: job-name-infantry-ranged
+
+- type: jobIcon
+  locationPreference: Right
+  parent: JobIcon
+  priority: 3
+  id: JobIconNomad
+  icon:
+    sprite: /Textures/Interface/Misc/civ_hud_ranks.rsi
+    state: soldier
+  jobName: job-name-i-cpt

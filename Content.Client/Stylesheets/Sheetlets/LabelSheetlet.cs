@@ -15,6 +15,7 @@ public sealed class LabelSheetlet : Sheetlet<PalettedStylesheet>
         var robotoMonoBold11 = ResCache.GetFont("/Fonts/RobotoMono/RobotoMono-Bold.ttf", size: 11);
         var robotoMonoBold12 = ResCache.GetFont("/Fonts/RobotoMono/RobotoMono-Bold.ttf", size: 12);
         var robotoMonoBold14 = ResCache.GetFont("/Fonts/RobotoMono/RobotoMono-Bold.ttf", size: 14);
+        var signWoodRegular14 = ResCache.GetFont("/Fonts/Signwood/Signwood-Regular.otf", size: 24);
 
         return
         [
@@ -74,6 +75,10 @@ public sealed class LabelSheetlet : Sheetlet<PalettedStylesheet>
             E<Label>()
                 .Class(StyleClass.LabelMonospaceSubHeading)
                 .Prop(Label.StylePropertyFont, robotoMonoBold14),
+
+            E<Label>()
+                .Class(StyleClass.LabelSignWoodHeading)
+                .Prop(Label.StylePropertyFont, signWoodRegular14),
         ];
     }
 }

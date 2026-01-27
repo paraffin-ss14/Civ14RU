@@ -1,0 +1,7 @@
+- type: textPresets
+  id: Test
+  textPresets:
+    Sandbox: "SOME TEXT TO APPEAR!"
+  updateTime: 0.1
+  existTime: 10
+  color: "#FFFFFF"
